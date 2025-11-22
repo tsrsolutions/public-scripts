@@ -21,12 +21,12 @@ else
 fi
 
 echo "Starting QEMU Guest Agent..."
-systemctl start qemu-guest-agent
+systemctl start qemu-guest-agent 2>/dev/null || true
 
 echo "Verifying service is running..."
 if systemctl is-active --quiet qemu-guest-agent; then
     echo "✓ QEMU Guest Agent is running"
-    systemctl status qemu-guest-agent --no-pager
+    systemctl status qemu-guest-agent --no-pager -l
 else
     echo "✗ Failed to start QEMU Guest Agent"
     exit 1
