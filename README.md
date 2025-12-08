@@ -1,8 +1,46 @@
 # Public Scripts
 
-A collection of utility scripts for Linux VM setup and configuration.
+A collection of utility scripts for macOS and Linux setup and configuration.
 
 ## Available Scripts
+
+### Claude Code Installation Script
+
+Installs Claude Code (Anthropic's official CLI for Claude) on macOS and Linux systems using the official native installer.
+
+**Supported Platforms:**
+- macOS (Intel and Apple Silicon)
+- Linux
+
+**Features:**
+- Uses the official Anthropic installer (no Node.js required)
+- Auto-detects operating system
+- Checks for existing installation before reinstalling
+- Verifies successful installation
+
+**Usage:**
+
+Pipe directly to bash:
+```bash
+curl -sSL https://raw.githubusercontent.com/tsrsolutions/public-scripts/main/install-claude-code.sh | bash
+```
+
+Or download and run locally:
+```bash
+curl -sSL https://raw.githubusercontent.com/tsrsolutions/public-scripts/main/install-claude-code.sh -o install-claude-code.sh
+chmod +x install-claude-code.sh
+./install-claude-code.sh
+```
+
+**Post-Installation:**
+After installation, start Claude Code by running:
+```bash
+claude
+```
+
+You'll be prompted to authenticate with your Anthropic API key or log in to your Anthropic account on first run.
+
+---
 
 ### Docker Installation Script
 
@@ -76,9 +114,9 @@ sudo ./qemu-agent-install.sh
 
 ## Requirements
 
-- Linux-based operating system
+- macOS or Linux-based operating system
 - `curl` installed
-- Appropriate privileges (sudo access or root)
+- Appropriate privileges (sudo access for Linux package installation)
 - Internet connection
 
 ## Security Considerations
