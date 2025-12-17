@@ -105,23 +105,23 @@ function Get-VirtioWindowsVersion {
         10 {
             if ([int]$BuildNumber -ge 26100) { return "2k25" }      # Server 2025
             if ([int]$BuildNumber -ge 22000) {                       # Win11 / Server 2022
-                return if ($IsServer) { "2k22" } else { "w11" }
+                if ($IsServer) { return "2k22" } else { return "w11" }
             }
             if ([int]$BuildNumber -ge 17763) {                       # Win10 1809+ / Server 2019
-                return if ($IsServer) { "2k19" } else { "w10" }
+                if ($IsServer) { return "2k19" } else { return "w10" }
             }
-            return if ($IsServer) { "2k16" } else { "w10" }
+            if ($IsServer) { return "2k16" } else { return "w10" }
         }
         6 {
             switch ($WinVer.Minor) {
-                3 { return if ($IsServer) { "2k12R2" } else { "w8.1" } }
-                2 { return if ($IsServer) { "2k12" } else { "w8" } }
-                1 { return if ($IsServer) { "2k8R2" } else { "w7" } }
+                3 { if ($IsServer) { return "2k12R2" } else { return "w8.1" } }
+                2 { if ($IsServer) { return "2k12" } else { return "w8" } }
+                1 { if ($IsServer) { return "2k8R2" } else { return "w7" } }
                 0 { return "2k8" }
             }
         }
         5 {
-            return if ($WinVer.Minor -eq 2) { "2k3" } else { "xp" }
+            if ($WinVer.Minor -eq 2) { return "2k3" } else { return "xp" }
         }
     }
     return "2k22"  # Default fallback
