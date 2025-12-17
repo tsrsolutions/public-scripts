@@ -146,7 +146,7 @@ Downloads and installs VirtIO drivers and QEMU Guest Agent on Windows VMs runnin
 
 **Option 1:** Run directly from PowerShell (Run as Administrator):
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; irm https://raw.githubusercontent.com/tsrsolutions/public-scripts/main/windows/Install-VirtioDrivers.ps1 | iex
+Set-ExecutionPolicy Bypass -Scope Process -Force; & ([scriptblock]::Create((irm https://raw.githubusercontent.com/tsrsolutions/public-scripts/main/windows/Install-VirtioDrivers.ps1)))
 ```
 
 **Option 2:** Download and run locally:
@@ -155,7 +155,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; irm https://raw.githubusercont
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/tsrsolutions/public-scripts/main/windows/Install-VirtioDrivers.ps1 -OutFile Install-VirtioDrivers.ps1
 
 # Run the script (as Administrator)
-.\Install-VirtioDrivers.ps1
+Set-ExecutionPolicy Bypass -Scope Process -Force; .\Install-VirtioDrivers.ps1
 ```
 
 **Parameters:**

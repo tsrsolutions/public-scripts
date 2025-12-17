@@ -18,7 +18,7 @@
 
 .EXAMPLE
     # One-liner from PowerShell (Run as Administrator):
-    irm https://raw.githubusercontent.com/USERNAME/REPO/main/Install-VirtioDrivers.ps1 | iex
+    & ([scriptblock]::Create((irm https://raw.githubusercontent.com/tsrsolutions/public-scripts/main/windows/Install-VirtioDrivers.ps1)))
 
 .NOTES
     Must be run as Administrator.
